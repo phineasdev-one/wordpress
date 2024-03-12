@@ -1,0 +1,15 @@
+version: "3"
+
+services:
+  # Wordpress
+  wordpress:
+    image: wordpress:latest
+    ports:
+      - "8000:80"
+    restart: always
+    volumes: ["./:/var/www/html"]
+    environment:
+      WORDPRESS_DB_HOST: host.docker.internal:3306
+      WORDPRESS_DB_USER: root
+      WORDPRESS_DB_PASSWORD: 12345678
+      WORDPRESS_DB_NAME: wordpress
